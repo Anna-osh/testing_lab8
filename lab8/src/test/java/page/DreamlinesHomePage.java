@@ -3,13 +3,9 @@ package page;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 
-import java.util.List;
-import java.time.Duration;
 
 public class DreamlinesHomePage extends AbstractPage {
     private static final String HOMEPAGE_URL = "https://www.dreamlines.ru/";
@@ -28,8 +24,13 @@ public class DreamlinesHomePage extends AbstractPage {
     }
 
     public DreamlinesResultPage searchForTrips(){
-        new WebDriverWait(driver, Duration.ofSeconds(20))
-                .until(ExpectedConditions.presenceOfElementLocated(By.xpath(SEARCH_BUTTON_XPATH))).click();
+        WebElement element = driver.findElement(By.xpath(SEARCH_BUTTON_XPATH));
+
+        Actions actions = new Actions(driver);
+
+        actions.moveToElement(element).click(); //.perform()
+        /*new WebDriverWait(driver, Duration.ofSeconds(20))
+                .until(ExpectedConditions.presenceOfElementLocated(By.xpath(SEARCH_BUTTON_XPATH))).click();*/
         //searchButton.click();
         return new DreamlinesResultPage(driver);
     }
