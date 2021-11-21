@@ -28,7 +28,7 @@ public class DreamlinesHomePage extends AbstractPage {
     }
 
     public DreamlinesResultPage searchForTrips(){
-        new WebDriverWait(driver, Duration.ofSeconds(10))
+        new WebDriverWait(driver, Duration.ofSeconds(20))
                 .until(ExpectedConditions.presenceOfElementLocated(By.xpath(SEARCH_BUTTON_XPATH))).click();
         //searchButton.click();
         return new DreamlinesResultPage(driver);
