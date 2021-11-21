@@ -8,6 +8,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
+import java.time.Duration;
 
 public class DreamlinesHomePage extends AbstractPage {
     private static final String HOMEPAGE_URL = "https://www.dreamlines.ru/";
@@ -26,7 +27,9 @@ public class DreamlinesHomePage extends AbstractPage {
     }
 
     public DreamlinesResultPage searchForTrips(){
-        searchButton.click();
+        new WebDriverWait(driver, Duration.ofSeconds(10))
+                .until(ExpectedConditions.presenceOfElementLocated(By.xpath(SEARCH_BUTTON_XPATH))).click();
+        //searchButton.click();
         return new DreamlinesResultPage(driver);
     }
 }
