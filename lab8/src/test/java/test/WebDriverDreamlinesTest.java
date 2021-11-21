@@ -17,10 +17,15 @@ public class WebDriverDreamlinesTest {
 
     @BeforeMethod (alwaysRun = true)
     public void browserSetup(){
-        ChromeOptions options = new ChromeOptions();
+        /*ChromeOptions options = new ChromeOptions();
         options.addArguments("--headless", "--no-sandbox", "--disable-dev-shm-usage");
         driver = new ChromeDriver(options);
-        driver.manage().window().maximize();
+        driver.manage().window().maximize();*/
+        
+        options.addArguments("--headless");
+        options.addArguments("--window-size=1920,1080");
+        options.addArguments("--start-maximized");
+        driver = new ChromeDriver(options);
         //driver = new ChromeDriver();
     }
 
