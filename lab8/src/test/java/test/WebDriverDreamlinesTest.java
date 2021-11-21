@@ -21,7 +21,6 @@ public class WebDriverDreamlinesTest {
         options.addArguments("--headless", "--no-sandbox", "--disable-dev-shm-usage");
         driver = new ChromeDriver(options);
         driver.manage().window().maximize();
-        //driver = new ChromeDriver();
     }
 
     @Test
@@ -38,6 +37,6 @@ public class WebDriverDreamlinesTest {
     @AfterMethod (alwaysRun = true)
     public void browserTearDown(){
         driver.quit();
-
+        driver=null;
     }
 }
