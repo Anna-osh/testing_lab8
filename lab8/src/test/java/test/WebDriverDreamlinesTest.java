@@ -31,7 +31,7 @@ public class WebDriverDreamlinesTest {
                 .searchForTrips()
                 .countNumberOfSearchResults();
         System.out.println(expectedSearchResultsNumber);
-        Assert.assertTrue(expectedSearchResultsNumber>0, "Search results are empty ");
+        Assert.assertFalse(expectedSearchResultsNumber>0, "Search results are empty ");
 
     }
 
