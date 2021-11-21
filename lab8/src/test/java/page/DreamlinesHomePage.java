@@ -24,14 +24,9 @@ public class DreamlinesHomePage extends AbstractPage {
     }
 
     public DreamlinesResultPage searchForTrips(){
-        WebElement element = driver.findElement(By.xpath(SEARCH_BUTTON_XPATH));
-
+        WebElement searchButton = driver.findElement(By.xpath(SEARCH_BUTTON_XPATH));
         Actions actions = new Actions(driver);
-
-        actions.moveToElement(element).click(); //.perform()
-        /*new WebDriverWait(driver, Duration.ofSeconds(20))
-                .until(ExpectedConditions.presenceOfElementLocated(By.xpath(SEARCH_BUTTON_XPATH))).click();*/
-        //searchButton.click();
+        actions.moveToElement(searchButton).click();      
         return new DreamlinesResultPage(driver);
     }
 }
